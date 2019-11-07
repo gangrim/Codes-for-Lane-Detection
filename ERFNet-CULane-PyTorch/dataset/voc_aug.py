@@ -6,18 +6,19 @@ from torch.utils.data import Dataset
 
 
 class VOCAugDataSet(Dataset):
-    def __init__(self, dataset_path='/home/houyuenan/remote/ApolloScapes/Codes-for-Lane-Detection/ENet-SAD-Pytorch/data/CULane/list', data_list='train', transform=None):
+    def __init__(self, dataset_path='/root/Codes-for-Lane-Detection/ERFNet-CULane-PyTorch/', data_list='dataset', transform=None):
 
-        with open(os.path.join(dataset_path, data_list + '.txt')) as f:
+        with open(os.path.join(dataset_path, data_list + '/train_gt.txt')) as f:
             self.img_list = []
             self.img = []
             self.label_list = []
             self.exist_list = []
             for line in f:
                 self.img.append(line.strip().split(" ")[0])
-                self.img_list.append(dataset_path.replace('/list', '') + line.strip().split(" ")[0])
-                self.label_list.append(dataset_path.replace('/list', '') + line.strip().split(" ")[1])
-                self.exist_list.append(np.array([int(line.strip().split(" ")[2]), int(line.strip().split(" ")[3]), int(line.strip().split(" ")[4]), int(line.strip().split(" ")[5])]))
+                self.img_list.append(dataset_path+line.strip().split(" ")[0])
+                self.label_list.append(dataset_path+line.strip().split(" ")[1])
+                self.exist_list.append(np.array([int(line.strip().split(" ")[2]), int(line.strip().split(" ")[3]), \
+                    int(line.strip().split(" ")[4]), int(line.strip().split(" ")[5])] , int(line.strip().split(" ")[6])]))
 
         self.img_path = dataset_path
         self.gt_path = dataset_path
