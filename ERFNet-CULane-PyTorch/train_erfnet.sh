@@ -1,8 +1,8 @@
 python3 -u train_erfnet.py CULane ERFNet train_gt val_gt \
                         --lr 0.01 \
-                        --gpus 0 1 2 3 \
+                        --gpus 0  \
                         --npb \
-                        --resume none \
+                        --resume pretrained/ERFNet_pretrained.tar \
                         -j 12 \
                         -b 12 \
                         --epochs 12 \
