@@ -18,7 +18,7 @@ class VOCAugDataSet(Dataset):
                 self.img_list.append(dataset_path+line.strip().split(" ")[0])
                 self.label_list.append(dataset_path+line.strip().split(" ")[1])
                 self.exist_list.append(np.array([int(line.strip().split(" ")[2]), int(line.strip().split(" ")[3]), \
-                    int(line.strip().split(" ")[4]), int(line.strip().split(" ")[5])] , int(line.strip().split(" ")[6])]))
+                    int(line.strip().split(" ")[4]), int(line.strip().split(" ")[5]) , int(line.strip().split(" ")[6])]))
 
         self.img_path = dataset_path
         self.gt_path = dataset_path
