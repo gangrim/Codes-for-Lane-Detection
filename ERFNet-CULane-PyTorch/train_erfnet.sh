@@ -1,6 +1,6 @@
 python3 -u train_erfnet.py CULane ERFNet train_gt val_gt \
                         --lr 0.01 \
-                        --gpus 1 \
+                        --gpus 0 1 2 3 \
                         --npb \
                         --resume none \
                         -j 12 \
