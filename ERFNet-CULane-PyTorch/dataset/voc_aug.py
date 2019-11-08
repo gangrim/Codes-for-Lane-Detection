@@ -8,7 +8,7 @@ from torch.utils.data import Dataset
 class VOCAugDataSet(Dataset):
     def __init__(self, dataset_path='/root/Codes-for-Lane-Detection/ERFNet-CULane-PyTorch/', data_list='dataset', transform=None):
 
-        with open(os.path.join(dataset_path, data_list + '/train_gt.txt')) as f:
+        with open(os.path.join(dataset_path, data_list + '.txt')) as f:
             self.img_list = []
             self.img = []
             self.label_list = []
