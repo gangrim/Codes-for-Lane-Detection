@@ -14,9 +14,9 @@ class VOCAugDataSet(Dataset):
             self.label_list = []
             self.exist_list = []
             for line in f:
-                self.img.append(line.strip().split(" ")[0])
-                self.img_list.append(dataset_path+line.strip().split(" ")[0])
-                self.label_list.append(dataset_path+line.strip().split(" ")[1])
+                self.img.append(line.strip().split(" ")[0]) 
+                self.img_list.append(dataset_path+line.strip().split(" ")[0]) 
+                self.label_list.append(dataset_path+line.strip().split(" ")[1]) 
                 self.exist_list.append(np.array([int(line.strip().split(" ")[2]), int(line.strip().split(" ")[3]), int(line.strip().split(" ")[4]), int(line.strip().split(" ")[5]) , int(line.strip().split(" ")[6])]))
                     
 
