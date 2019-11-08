@@ -6,7 +6,7 @@ from torch.utils.data import Dataset
 
 
 class VOCAugDataSet(Dataset):
-    def __init__(self, dataset_path='/root/Codes-for-Lane-Detection/ERFNet-CULane-PyTorch/dataset/', data_list='train', transform=None):
+    def __init__(self, dataset_path='/root/Codes-for-Lane-Detection/ERFNet-CULane-PyTorch/datasets/', data_list='train', transform=None):
 
         with open(os.path.join(dataset_path, data_list + '.txt')) as f:
             self.img_list = []
