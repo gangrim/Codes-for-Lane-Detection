@@ -31,6 +31,7 @@ class VOCAugDataSet(Dataset):
     def __getitem__(self, idx):
         image = cv2.imread(os.path.join(self.img_path, self.img_list[idx])).astype(np.float32)
         label = cv2.imread(os.path.join(self.gt_path, self.label_list[idx]), cv2.IMREAD_UNCHANGED)
+        label= cv2.cvtColor(label,cv2.COLOR_BGR2GRAY)
         exist = self.exist_list[idx]
         image = image[240:, :, :]
         label = label[240:, :]
