@@ -101,7 +101,7 @@ def main():
     optimizer = torch.optim.SGD(model.parameters(), args.lr, momentum=args.momentum, weight_decay=args.weight_decay)
     evaluator = EvalSegmentation(num_class, ignore_label)
 
-    args.evaluate = True
+    args.evaluate = False
 
     if args.evaluate:
         validate(val_loader, model, criterion, 0, evaluator)
@@ -148,8 +148,8 @@ def train(train_loader, model, criterion, criterion_exist, optimizer, epoch):
         # measure data loading time
         data_time.update(time.time() - end)
 
-        target = target.cuda(async=True)
-        target_exist = target_exist.float().cuda(async=True)
+        target = target.cuda()
+        target_exist = target_exist.float().cuda()
         input_var = torch.autograd.Variable(input)
         target_var = torch.autograd.Variable(target)
         target_exist_var = torch.autograd.Variable(target_exist)
